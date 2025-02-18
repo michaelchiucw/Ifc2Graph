@@ -22,7 +22,9 @@ class IfcGraph(nx.Graph):
         self.color_list = ["#808B96", "#e99d4e", "#a6cee3", "#b2df8a", "#fddbd0", "#91998e"] #Last is default
         super().__init__()
 
-    def generate(self, save_dir=None):
+        self.build_graph()
+
+    def build_graph(self):
         graph_node_attribute_dict = {}
 
         for space_name,adjacent_spaces_list in self.adjacent_spaces_dict.items():
@@ -46,6 +48,9 @@ class IfcGraph(nx.Graph):
                             graph_node_attribute_dict[space_name] = {"label": self.name_to_type_dict[self.space_type_name_dict[space_name]]}
                         else:
                             graph_node_attribute_dict[space_name] = {"label": self.space_type_name_dict[space_name]}
+    
+    
+    def gen_graph_visual(save_dir=None):
         min_fontsize = 35
         max_fontsize = 35
 
