@@ -177,7 +177,7 @@ class IfcGeometry:
 
         print("Generating space to position index map...")
         self.grid_shape = (self.x_size,self.y_size,self.z_size)
-        self._3D_space_idx_array = np.ones(self.grid_shape,dtype=np.int)*self.ambient_idx
+        self._3D_space_idx_array = np.ones(self.grid_shape,dtype=int)*self.ambient_idx
 
         #Set indices for neutral space
         for space_counter,space_mesh in enumerate(self.space_mesh_neutral_list):
